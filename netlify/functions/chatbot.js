@@ -1,11 +1,9 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
-  // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
-  }
-
+  // Add debug logging
+  console.log("Incoming request:", event.body);
+  
   try {
     const { userInput } = JSON.parse(event.body);
     
@@ -20,11 +18,10 @@ exports.handler = async (event) => {
         messages: [
           {
             role: 'system',
-            content: 'You are Kunal Sewal\'s assistant. He is a Data Science student at IIT Bhilai. Answer concisely about his: education, skills (Python, C++, ML), projects (Eaze It, Plant Classification), and experience (Techbairn, COSA).'
+            content: 'You are Kunal Sewal\'s assistant. Keep responses under 2 sentences.'
           },
           { role: 'user', content: userInput }
-        ],
-        temperature: 0.7
+        ]
       })
     });
 
@@ -35,9 +32,13 @@ exports.handler = async (event) => {
     };
     
   } catch (error) {
+    console.error('Full error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to process request' })
+      body: JSON.stringify({ 
+        error: 'Chatbot unavailable',
+        details: error.message 
+      })
     };
   }
 };

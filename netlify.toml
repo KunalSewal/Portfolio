@@ -1,0 +1,23 @@
+[build]
+  # Location of your functions (matches your folder structure)
+  functions = "netlify/functions"
+
+  # Build command (empty for static sites)
+  command = ""
+
+  # Publish directory (where your HTML/CSS/JS lives)
+  publish = ""
+
+[functions]
+  # Use esbuild for better Node.js compatibility
+  node_bundler = "esbuild"
+
+  # Set timeout to 10 seconds (default is 10)
+  timeout = 10
+
+[dev]
+  # Local development settings
+  framework = "#static"
+  targetPort = 8888
+  autoLaunch = true
+
