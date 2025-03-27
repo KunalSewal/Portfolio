@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Sewal | Data Science & AI</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#intro">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="intro-section">
+        <div class="intro-content">
+            <h1>Kunal Sewal</h1>
+            <h2>Data Science & AI Student at IIT Bhilai</h2>
+            <p>Passionate about building intelligent systems and solving complex problems through data-driven approaches.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/KunalSewal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/KunalSewal" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/KunalSewal" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="profile-image">
+            <img src="assets/images/profile.jpg" alt="Kunal Sewal" onerror="this.style.display='none'">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>C/C++</li>
+                    <li>HTML/CSS/JavaScript</li>
+                    <li>Competitive Programming (Codeforces 1000+)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Data Science</h3>
+                <ul>
+                    <li>Pandas, NumPy</li>
+                    <li>Matplotlib</li>
+                    <li>Data Visualization</li>
+                    <li>Machine Learning</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Teamwork & Collaboration</li>
+                    <li>Leadership</li>
+                    <li>Event Management</li>
+                    <li>Problem-Solving</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Overview Section -->
+    <section id="resume" class="resume-section">
+        <h2>Resume Highlights</h2>
+        <div class="resume-highlights">
+            <div class="experience">
+                <h3>Experience</h3>
+                <div class="experience-item">
+                    <h4>Techbairn | Intern</h4>
+                    <p>May 2024 - Jul 2024</p>
+                    <ul>
+                        <li>Organized collaborative workshops</li>
+                        <li>Developed marketing and communication skills</li>
+                    </ul>
+                </div>
+                <!-- Add other experiences similarly -->
+            </div>
+            <div class="projects">
+                <h3>Projects</h3>
+                <div class="project-item">
+                    <h4>Eaze It - Stress Relief Web App</h4>
+                    <p>Developed features like depression test, relaxing music</p>
+                </div>
+                <div class="project-item">
+                    <h4>Mystical Plant Classification</h4>
+                    <p>Deep learning model with 89% accuracy</p>
+                </div>
+            </div>
+        </div>
+        <a href="assets/resume.pdf" class="download-btn" download>Download Full Resume</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> kunalsewal@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 7889366456</p>
+        </div>
+        <div class="contact-links">
+            <a href="https://linkedin.com/in/KunalSewal" class="contact-btn" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/KunalSewal" class="contact-btn" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:kunalsewal@gmail.com" class="contact-btn">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </section>
+
+    <!-- Chatbot Button -->
+    <button id="chatbot-toggle" class="chatbot-toggle">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Resume Assistant</h3>
+            <button id="chatbot-close" class="chatbot-close">&times;</button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Ask about my resume...">
+            <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/chatbot.js"></script>
+</body>
+</html>

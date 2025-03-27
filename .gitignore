@@ -1,0 +1,6 @@
+# Secrets
+.env
+netlify/functions/.env
+
+# Node modules
+node_modules/
