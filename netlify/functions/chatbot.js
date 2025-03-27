@@ -1,12 +1,19 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
-  // Add debug logging
-  console.log("Incoming request:", event.body);
-  
   try {
-    const { userInput } = JSON.parse(event.body);
-    
+    // Verify request method
+    if (event.httpMethod !== 'POST') {
+      return { statusCode: 405, body: 'Method Not Allowed' };
+    }
+
+    // Parse input safely
+    const { userInput } = JSON.parse(event.body || '{}');
+    if (!userInput) {
+      return { statusCode: 400, body: 'Missing userInput' };
+    }
+
+    // Call OpenAI API
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -18,25 +25,31 @@ exports.handler = async (event) => {
         messages: [
           {
             role: 'system',
-            content: 'You are Kunal Sewal\'s assistant. Keep responses under 2 sentences.'
+            content: 'You are Kunal Sewal\'s assistant. He studies Data Science at IIT Bhilai. Respond in 1-2 sentences.'
           },
           { role: 'user', content: userInput }
-        ]
+        ],
+        temperature: 0.7
       })
     });
+
+    // Handle API response
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
 
     const data = await response.json();
     return {
       statusCode: 200,
-      body: data.choices[0].message.content
+      body: data.choices?.[0]?.message?.content || 'No response from AI'
     };
-    
+
   } catch (error) {
     console.error('Full error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ 
-        error: 'Chatbot unavailable',
+        error: 'Chatbot failed',
         details: error.message 
       })
     };
