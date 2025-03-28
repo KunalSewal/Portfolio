@@ -1,4 +1,4 @@
-// Smooth scrolling for navigation
+
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -17,7 +17,6 @@ const mobileMenuToggle = () => {
     // Implementation for mobile menu
 };
 
-// Scroll reveal animations
 window.addEventListener('scroll', revealOnScroll);
 
 function revealOnScroll() {
@@ -34,10 +33,8 @@ function revealOnScroll() {
     });
 }
 
-// Initialize scroll reveal
 revealOnScroll();
 
-// Add initial styles for scroll reveal
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';

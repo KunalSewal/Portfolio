@@ -1,5 +1,3 @@
-// Replace your existing chatbot code with this:
-
 // ===== Chatbot UI Logic =====
 const chatbotToggle = document.getElementById('chatbot-toggle');
 const chatbotContainer = document.getElementById('chatbot-container');
@@ -21,12 +19,11 @@ function addMessage(content, isUser) {
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
 
-// ===== Secure API Integration =====
-async function sendToOpenAI(userInput) {
+// ===== DeepSeek API Integration =====
+async function sendToDeepSeek(userInput) {
   showTypingIndicator();
   
   try {
-    // Call Netlify Function (proxy)
     const response = await fetch('/.netlify/functions/chatbot', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,7 +31,7 @@ async function sendToOpenAI(userInput) {
     });
     
     if (!response.ok) throw new Error('API error');
-    const reply = await response.json();
+    const { reply } = await response.json();
     addMessage(reply, false);
     
   } catch (error) {
@@ -75,8 +72,7 @@ async function handleUserMessage() {
   
   addMessage(userInput, true);
   chatbotInput.value = '';
-  await sendToOpenAI(userInput);
+  await sendToDeepSeek(userInput);
 }
 
-// Initial welcome message
-addMessage("Hi! I'm Kunal's AI assistant. Ask me about his skills, projects, or experience.", false);
+addMessage("Hi! I'm Kunal's AI assistant. Ask me about anything!", false);
